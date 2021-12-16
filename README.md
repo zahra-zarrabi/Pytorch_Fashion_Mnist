@@ -9,7 +9,7 @@ To train the model, please run fallowing:
 python3 train.py --device cuda
 ```
 
-## Download weights
+## Pretrained model
 Please download the weights from [here](https://drive.google.com/file/d/11NlkMfSGvcGcR_0AuBCc1HPFZW4PJoNF/view?usp=sharing)  
 ## Test
 To test the model, please run fallowing:
