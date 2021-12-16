@@ -7,7 +7,7 @@ import numpy as np
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('--device',default='cpu', type=str)
-my_parser.add_argument('--image',type=str)
+my_parser.add_argument('--image_path', type=str)
 args=my_parser.parse_args()
 
 target=['T-shirt/top','Trouser','Pullover','Dress','Coat','Sandal','Shirt','Sneaker','Bag','Ankle boot']
