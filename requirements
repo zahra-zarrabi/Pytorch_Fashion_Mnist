@@ -1,0 +1,8 @@
+torch
+torchvision
+open_cv
+numpy
+argparse
+tqdm
+wandb
+
