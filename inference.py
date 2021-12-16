@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('--device',default=torch.device('cpu'),type=str)
+my_parser.add_argument('--device',default='cpu', type=str)
 my_parser.add_argument('--image',type=str)
 args=my_parser.parse_args()
 
@@ -22,7 +22,7 @@ device = torch.device(args.device)
 model=cnn_model()
 model = model.to(device)
 
-model.load_state_dict(torch.load('fashion_mnist.pth',map_location=torch.device(args.device)))
+model.load_state_dict(torch.load('models/fashion_mnist.pth',map_location=torch.device(args.device)))
 
 model.eval()
 

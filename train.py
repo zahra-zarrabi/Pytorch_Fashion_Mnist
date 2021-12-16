@@ -5,12 +5,12 @@ import argparse
 from tqdm import tqdm
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('--device',default=torch.device('cuda'),type=str)
+my_parser.add_argument('--device', default='cpu', type=str)
 args=my_parser.parse_args()
 
 def calc_acc(preds,labels):
   _,pred_max=torch.max(preds,1)
-  acc=torch.sum(pred_max==labels.data,dtype=torch.float64)/len(preds)
+  acc=torch.sum(pred_max==labels.data, dtype=torch.float64) / len(preds)
   return acc
 
 device = torch.device(args.device)
@@ -58,3 +58,5 @@ for epoch in range(epochs):
   total_loss = train_loss / len(train_data_loader)
   total_acc = train_acc / len(train_data_loader)
   print(f"loss_train:{total_loss},accuracy_train:{total_acc}")
+
+torch.save(model.state_dict(), "models/fashion_mnist.pth")

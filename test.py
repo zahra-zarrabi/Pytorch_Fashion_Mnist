@@ -5,7 +5,7 @@ import argparse
 from Model import cnn_model
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('--device',default=torch.device('cpu'),type=str)
+my_parser.add_argument('--device',default='cpu', type=str)
 args=my_parser.parse_args()
 
 def calc_acc(preds,labels):
@@ -30,7 +30,7 @@ transform=torchvision.transforms.Compose([
 test_data=torchvision.datasets.FashionMNIST('./dataset',train=False,download=True,transform=transform)
 test_data_loader=torch.utils.data.DataLoader(test_data,batch_size=batch_size,shuffle=False)
 
-model.load_state_dict(torch.load('fashion_mnist.pth',map_location=torch.device(args.device)))
+model.load_state_dict(torch.load('models/fashion_mnist.pth',map_location=torch.device(args.device)))
 
 loss_function=torch.nn.CrossEntropyLoss()
 
